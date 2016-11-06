@@ -269,6 +269,7 @@ console.log(book.alikeBook); 　　　　//["css book", "html book", "xml book",
  **/
 
 
+/*
 function inheritObject(o){
     // 声明一个过渡函数对象
     function F(){}
@@ -278,11 +279,11 @@ function inheritObject(o){
     return new F();
 }
 
-/**
+/!**
  * 寄生式继承 继承原型
  * 传递参数 subClass　 子类
  * 传递参数 superClass 父类
- **/
+ **!/
 function inheritPrototype(subClass, superClass){
     // 复制一份父类的原型副本保存在变量中
     var p = inheritObject(superClass.prototype);
@@ -316,4 +317,34 @@ SubClass.prototype.getTime = function(){
 };
 // 创建两个测试方法
 var instance1 = new SubClass("js book", 2014);
-var instance2 = new SubClass("css book", 2013);
+var instance2 = new SubClass("css book", 2013);*/
+
+
+
+// 单继承 属性复制　　
+var extend = function(target, source) {
+    // 遍历源对象中的属性
+    for (var property in source) {
+        // 将源对象中的属性复制到目标对象中
+        target[property] = source[property];
+    }
+    // 返回目标对象
+    return target;
+};
+
+var book = {
+    name : 'JavaScript设计模式',
+    alike : ['css', 'html', 'JavaScript']
+}
+var anotherBook = {
+    color : 'blue'
+}
+extend(anotherBook, book);
+console.log(anotherBook.name);　　　// JavaScript设计模式
+console.log(anotherBook.alike); 　　// ["css", "html", "JavaScript"]
+anotherBook.alike.push('ajax');
+anotherBook.name = '设计模式';
+console.log(anotherBook.name);　　　// 设计模式
+console.log(anotherBook.alike); 　　// ["css", "html", "JavaScript", "ajax"]
+console.log(book.name);　　　 　   　// JavaScript设计模式
+console.log(book.alike);　　　   　　// ["css", "html", "JavaScript", "ajax"]
