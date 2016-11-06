@@ -18,3 +18,15 @@
     this.setName(name);
     this.setPrice(price);
 }
+//类静态的公有属性（对象不能访问）
+Book.isChinese = true;
+//类静态公有方法(对象不能访问)
+Book.resetTime = function(){
+    console.log("new time");
+};
+Book.prototype = {
+    //公有属性
+    isJSBook : false,
+    //公有方法
+    display : function(){}
+}
