@@ -30,3 +30,23 @@ Book.prototype = {
     //公有方法
     display : function(){}
 }
+
+var b = new Book(11, "javascript", 50);
+console.log(b.num);
+console.log(b.isJSBook);
+console.log(b.id);
+console.log(b.isChinese);
+console.log(Book.isChinese);
+Book.resetTime();
+
+/**
+ undefined
+ test.js:36 false
+ test.js:37 11
+ test.js:38 undefined
+ test.js:39 true
+ test.js:25 new time
+ *
+ */
+
+
