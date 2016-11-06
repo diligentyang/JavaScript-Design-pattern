@@ -221,9 +221,17 @@ function SubClass(name, time){
 // 类式继承 子类原型继承父类
 SubClass.prototype = new SuperClass();
 // 子类原型方法
-SubClass.prototype.getTIme = function(){
+SubClass.prototype.getTime = function(){
     console.log(this.time);
 };
 
-
+var instance1 = new SubClass("js book", 2014);
+instance1.books.push("设计模式");
+console.log(instance1.books);　　　// ["html", "css", "JavaScript", "设计模式"]
+instance1.getName();　　 　　　　// js book
+instance1.getTime();　　 　　　　// 2014　
+var instance2 = new SubClass("css book", 2013);
+console.log(instance2.books);　　　// ["html", "css", "JavaScript"]
+instance2.getName();　　　　　　　// css book
+instance2.getTime();　　 　　　　// 2013
 
