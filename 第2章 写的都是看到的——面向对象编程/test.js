@@ -171,6 +171,7 @@ console.log(instance2.books);　　// ["JavaScript", "html", "css", "设计模�
 
 //构造函数式继承
 // 声明父类
+/**
 function SuperClass(id){
     // 引用类型共有属性
     this.books = ['JavaScript', 'html', 'css'];
@@ -196,7 +197,33 @@ console.log(instance1.id);　　　　// 10
 console.log(instance2.books); 　　// ["JavaScript", "html", "css"]
 console.log(instance2.id); 　　　　// 11
 instance1.showBooks();　　　　　　// TypeError
+**/
 
+// 组合式继承
+// 声明父类
+function SuperClass(name){
+    // 值类型共有属性
+    this.name = name;
+    // 引用类型共有属性
+    this.books = ["html", "css", "JavaScript"];
+}
+// 父类原型共有方法
+SuperClass.prototype.getName = function(){
+    console.log(this.name);
+};
+// 声明子类
+function SubClass(name, time){
+    // 构造函数式继承父类name属性
+    SuperClass.call(this, name);
+    // 子类中新增共有属性
+    this.time = time;
+}
+// 类式继承 子类原型继承父类
+SubClass.prototype = new SuperClass();
+// 子类原型方法
+SubClass.prototype.getTIme = function(){
+    console.log(this.time);
+};
 
 
 
