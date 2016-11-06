@@ -132,3 +132,45 @@ var Book = (function() {
 })();
 **/
 
+/**
+// 图书安全类
+var Book = function(title, time, type){
+    // 判断执行过程中this是否是当前这个对象（如果是说明是用new创建的）
+    if(this instanceof Book){
+        this.title = title;
+        this.time = time;
+        this.type = type;
+        // 否则重新创建这个对象
+    }else{
+        return new Book(title, time, type);
+    }
+}
+var book = Book('JavaScript', '2016', 'js');
+
+console.log(book);　　　　　　　// Book
+console.log(book.title);　　　　// JavaScript
+console.log(book.time);　　 　　// 2016
+console.log(book.type);　　 　　// js
+console.log(window.title); 　　// undefined
+console.log(window.time);　 　　// undefined
+console.log(window.type);　 　　// undefined
+**/
+
+function SuperClass(){
+    this.books = ['JavaScript', 'html', 'css'];
+}
+function SubClass(){}
+SubClass.prototype = new SuperClass();
+var instance1 = new SubClass();
+var instance2 = new SubClass();
+console.log(instance2.books);　　// ["JavaScript", "html", "css"]
+instance1.books.push('设计模式');
+console.log(instance2.books);　　// ["JavaScript", "html", "css", "设计模式"]
+
+
+
+
+
+
+
+
