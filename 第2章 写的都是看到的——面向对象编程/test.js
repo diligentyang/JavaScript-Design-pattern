@@ -90,6 +90,8 @@ Book.prototype = {
 };
 **/
 
+
+/**
 // 利用闭包实现
 var Book = (function() {
     //静态私有变量
@@ -128,3 +130,5 @@ var Book = (function() {
     //返回类
     return _book;
 })();
+**/
+
