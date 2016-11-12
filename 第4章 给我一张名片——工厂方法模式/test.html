@@ -1,0 +1,13 @@
+﻿<script>
+var Demo = function(){};
+Demo.prototype = {
+	show : function(){
+		console.log('成功获取！');
+	}
+}
+
+var d = new Demo();
+d.show();//成功获取
+var d = Demo();
+d.show();//Uncaught TypeError: Cannot read property 'show' of undefined
+</script>
