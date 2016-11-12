@@ -1,4 +1,5 @@
 ﻿<script>
+/*
 var Demo = function(){};
 Demo.prototype = {
 	show : function(){
@@ -10,4 +11,19 @@ var d = new Demo();
 d.show();//成功获取
 var d = Demo();
 d.show();//Uncaught TypeError: Cannot read property 'show' of undefined
+*/
+
+var Demo = function(){
+	if(!(this instanceof Demo)){
+		return new Demo();
+	}
+}
+Demo.prototype = {
+	show : function(){
+		console.log('成功获取！');
+	}
+}
+
+var d = Demo();
+d.show();//成功获取
 </script>
