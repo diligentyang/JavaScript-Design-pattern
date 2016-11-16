@@ -13,7 +13,7 @@ var d = Demo();
 d.show();//Uncaught TypeError: Cannot read property 'show' of undefined
 */
 
-var Demo = function(){
+/*var Demo = function(){
 	if(!(this instanceof Demo)){
 		return new Demo();
 	}
@@ -25,5 +25,24 @@ Demo.prototype = {
 }
 
 var d = Demo();
-d.show();//成功获取
+d.show();//成功获取*/
+
+var Person = function (name, style){
+	if(this instanceof Person){
+		this.name = name;
+		this.style = style;
+	} else {
+		return new Person(name, style);
+	}
+}
+
+Person.prototype.speak = function(wtf){
+	console.log(wtf);
+}
+
+var a = Person("小红", "欧美");
+a.speak("雅蠛蝶");
+
+
+
 </script>
