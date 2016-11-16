@@ -30,7 +30,41 @@ var VehicleFactory = function(subType, superType){
 }
 
 //小汽车抽象类
+VehicleFactory.Car = function(){
+	this.type = 'car';
+};
+VehicleFactory.Car.prototype = {
+	getPrice : function(){
+		return new Error('抽象方法不能调用');
+	},
+	getSpeed : function(){
+		return new Error('抽象方法不能调用');
+	}
+};
 
+//公交车抽象类
+VehicleFactory.Bus = function(){
+	this.type = 'bus';
+};
+VehicleFactory.Bus.prototype = {
+	getPrice : function(){
+		return new Error('抽象方法不能调用');
+	},
+	getPassengerNum : function(){
+		return new Error('抽象方法不能调用');
+	}
+};
 
-
+//货车抽象类
+VehicleFactory.Truck = function(){
+	this.type = 'truck';
+};
+VehicleFactory.Truck.prototype = {
+	getPrice : function(){
+		return new Error('抽象方法不能调用');
+	},
+	getTrainload : function(){
+		return new Error('抽象方法不能调用');
+	}
+}
 </script>
